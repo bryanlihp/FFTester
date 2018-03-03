@@ -4,7 +4,7 @@
 
 #include "stdafx.h"
 #include "FFTester.h"
-
+#include "FFUtil.h"
 #include "MainFrm.h"
 
 #ifdef _DEBUG
@@ -37,6 +37,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWndEx)
 	ON_COMMAND(ID_VIEW_PROPERTIESWND, &CMainFrame::OnViewPropertiesWindow)
 	ON_UPDATE_COMMAND_UI(ID_VIEW_PROPERTIESWND, &CMainFrame::OnUpdateViewPropertiesWindow)
 	ON_WM_SETTINGCHANGE()
+	ON_COMMAND(ID_TESTER_FFPROBE, &CMainFrame::OnTesterFfprobe)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -599,4 +600,20 @@ void CMainFrame::OnSettingChange(UINT uFlags, LPCTSTR lpszSection)
 {
 	CFrameWndEx::OnSettingChange(uFlags, lpszSection);
 	m_wndOutput.UpdateFonts();
+}
+
+
+void CMainFrame::OnTesterFfprobe()
+{
+	TCHAR szFilter[] = _T("Media Files (*.avi, *.flv)|*.avi; *.flv|All Files (*.*)|*.*||");
+	CFileDialog dlgFile(TRUE, NULL, _T("E:\\ffmpegtest\\test.flv"), OFN_FILEMUSTEXIST, szFilter, this);
+	int nRet = dlgFile.DoModal();
+	if (nRet == IDOK)
+	{
+		CString sFilePath = dlgFile.GetPathName();
+		int nIndex = 0;
+		CFFUtil::FF_Probe(sFilePath, -1);
+		CFFUtil::FF_Probe(sFilePath, nIndex);
+		CFFUtil::FF_Probe(sFilePath, nIndex++);
+	}
 }

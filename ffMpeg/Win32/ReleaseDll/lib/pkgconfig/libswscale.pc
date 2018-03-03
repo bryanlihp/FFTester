@@ -1,0 +1,14 @@
+prefix=../stage/win32/ReleaseDll
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=../stage/include
+
+Name: libswscale
+Description: FFmpeg image rescaling library
+Version: 4.6.100
+Requires: libavutil >= 55.58.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lswscale 
+Libs.private: 
+Cflags: -I${includedir}

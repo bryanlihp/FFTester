@@ -76,15 +76,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)ffMpeg\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)ffMpeg\$(PlatForm)\$(Configuration)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)ffMpeg\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)ffMpeg\$(PlatForm)\$(Configuration)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)ffMpeg\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)ffMpeg\$(PlatForm)\$(Configuration)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(SolutionDir)ffMpeg\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)ffMpeg\$(PlatForm)\$(Configuration)\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -187,11 +195,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CalendarBar.h" />
+    <ClInclude Include="FFUtil.h" />
     <ClInclude Include="ClassView.h" />
     <ClInclude Include="FFTester.h" />
     <ClInclude Include="FFTesterDoc.h" />
     <ClInclude Include="FFTesterView.h" />
     <ClInclude Include="FileView.h" />
+    <ClInclude Include="GlobalDef.h" />
+    <ClInclude Include="GlobalUtil.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="OutputWnd.h" />
     <ClInclude Include="PropertiesWnd.h" />
@@ -202,11 +213,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CalendarBar.cpp" />
+    <ClCompile Include="FFUtil.cpp" />
     <ClCompile Include="ClassView.cpp" />
     <ClCompile Include="FFTester.cpp" />
     <ClCompile Include="FFTesterDoc.cpp" />
     <ClCompile Include="FFTesterView.cpp" />
     <ClCompile Include="FileView.cpp" />
+    <ClCompile Include="GlobalUtil.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputWnd.cpp" />
     <ClCompile Include="PropertiesWnd.cpp" />

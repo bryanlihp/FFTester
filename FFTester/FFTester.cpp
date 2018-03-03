@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 #include "FFTester.h"
 #include "MainFrm.h"
-
+#include "FFUtil.h"
 #include "FFTesterDoc.h"
 #include "FFTesterView.h"
 
@@ -60,6 +60,8 @@ CFFTesterApp theApp;
 
 BOOL CFFTesterApp::InitInstance()
 {
+
+	CFFUtil::Init();
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
@@ -148,7 +150,7 @@ int CFFTesterApp::ExitInstance()
 {
 	//TODO: handle additional resources you may have added
 	AfxOleTerm(FALSE);
-
+	CFFUtil::Uninit();
 	return CWinAppEx::ExitInstance();
 }
 
